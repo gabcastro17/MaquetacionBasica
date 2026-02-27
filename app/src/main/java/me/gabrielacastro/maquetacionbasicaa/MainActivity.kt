@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            producto()
+            tutorial()
         }
     }
 }
@@ -106,6 +107,38 @@ fun producto(){
                 )
                 {Text(text = "Eliminar")}
         }
+
+    }
+}
+
+@Composable
+fun tutorial(){
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Row() {
+            val painter2 = painterResource(R.drawable.android1)
+            Image(
+                painter = painter2,
+                contentDescription = null,
+                modifier = Modifier.width(1000.dp).fillMaxWidth()
+
+            )
+
+        }
+        Row(modifier = Modifier.padding(8.dp)) {
+            Text(text = "Jetpack Compose tutorial",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
+        Row(modifier = Modifier.padding(8.dp)) {
+            Text(text = "Jetpack Compose is a modern toolkit for building native Android Ul. Compose simplifies and accelerates Ul development on Android with less code, powerful tools, and intuitive Kotlin APIs.")
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+        Row(modifier = Modifier.padding(8.dp)) {
+            Text(text = "In this tutorial, you build a simple Ul component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app's Ul programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the Ul's construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name.")
+            Spacer(modifier = Modifier.height(12.dp))
+        }
+
 
     }
 }
