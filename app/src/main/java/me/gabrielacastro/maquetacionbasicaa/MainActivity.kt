@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,7 +14,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -23,10 +26,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,7 +43,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            tutorial()
+            redsocial()
         }
     }
 }
@@ -140,5 +146,110 @@ fun tutorial(){
         }
 
 
+    }
+}
+@Composable
+fun redsocial(){
+    Column(modifier = Modifier.padding(16.dp).fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        val painter3 = painterResource(R.drawable.rott1)
+        Image(
+            painter = painter3,
+            contentDescription = null,
+            modifier = Modifier.width(150.dp).clip(CircleShape)
+        )
+        Text(text = "Gabriela Castro",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.fillMaxWidth().padding(
+                top = 30.dp,
+                bottom = 10.dp,
+                start = 30.dp,
+                end = 30.dp
+            ),
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = "Estudiante de Ing. de Sistemas",
+            fontSize = 15.sp,
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = "150", fontWeight = FontWeight.Bold)
+                Text(text = "Posts")
+            }
+
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = "2.3K", fontWeight = FontWeight.Bold)
+                Text(text = "Seguidores")
+            }
+
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = "980", fontWeight = FontWeight.Bold)
+                Text(text = "Likes")
+            }
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+        Row(modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly)
+        {
+            Button(onClick = {}){
+                Text(text = "Seguir")
+            }
+            Button(onClick = {}){
+                Text(text = "Mensaje")
+            }
+        }
+        Spacer (modifier = Modifier.height(24.dp))
+
+        Text(text = "Intereses",
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Row(modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly)
+        {
+            Text(text = "VolleyBall")
+            Text(text = "Dibujo")
+            Text(text = "Animales")
+        }
+        Row(modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly)
+        {
+            Text(text = "Reposteria")
+            Text(text = "Astronomia")
+            Text(text = "Tecnologia")
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        Text(text = "Proyectos recientes",
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        Row(
+            modifier  =Modifier.fillMaxWidth().background(Color.LightGray).padding(8.dp)
+        ) {
+            val painter4 = painterResource(R.drawable.cupcake)
+            Image(
+                painter = painter4,
+                contentDescription = null,
+                modifier = Modifier.size(80.dp),contentScale = ContentScale.Crop)
+            Spacer(modifier = Modifier.width(8.dp))
+            Column() {
+                Text(text = "App de reposteria", fontWeight = FontWeight.Bold)
+                Text(text = "App para ver diferentes recetas de postres", fontSize = 12.sp)
+                Spacer(modifier = Modifier.height(8.dp))
+                Button(onClick = {}){
+                    Text(text = "Ver mas")
+                }
+            }
+        }
     }
 }
